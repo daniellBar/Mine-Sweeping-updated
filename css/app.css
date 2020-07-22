@@ -1,0 +1,42 @@
+body {
+  background-color:black;
+  color:white;
+}
+
+table {
+  margin: 0 auto;
+  border: 3px solid rgb(187, 250, 190);
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.5em;
+  /* display: block; */
+  /* color:white; */
+  background-color: rgb(252, 226, 193);
+}
+
+.visible{
+  visibility: visible;
+}
+
+/* .cell span {
+  visibility: hidden;
+} */
+
+
+
+
+
+
+ /* .formLine {
+  margin:10px;
+  padding:10px;
+  background-color: cornflowerblue;
+}  */
+
+/* .coloredGhost {
+  background-color:#7CD66C;
+} */
