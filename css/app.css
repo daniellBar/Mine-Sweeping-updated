@@ -16,27 +16,34 @@ table {
   /* display: block; */
   /* color:white; */
   background-color: rgb(252, 226, 193);
+  
 }
 
-.visible{
+/* .level {
+  background-color: lightseagreen;
+  display:block;
+  position: absolute;
+  top:10px;
+  right: 10px;
+  padding: 5px;
+  width: 300px;
+} */
+
+
+
+.hidden{
+  visibility: hidden;
+}
+
+.visible {
   visibility: visible;
 }
 
-/* .cell span {
-  visibility: hidden;
-} */
-
-
-
-
-
-
- /* .formLine {
-  margin:10px;
-  padding:10px;
-  background-color: cornflowerblue;
-}  */
-
-/* .coloredGhost {
-  background-color:#7CD66C;
-} */
+.timer {
+  background-color: lightseagreen;
+  display:none;
+  top:10px;
+  right: 10px;
+  padding: 5px;
+  width: 150px;
+}
