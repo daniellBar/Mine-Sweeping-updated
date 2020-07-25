@@ -1,11 +1,14 @@
 body {
-  background-color:black;
+  /* background-color: */
+  background-color: rgb(207,231,250);
   color:white;
 }
 
+
+
 table {
   margin: 0 auto;
-  border: 3px solid rgb(187, 250, 190);
+  border: 3px solid black;
 }
 
 .cell {
@@ -13,31 +16,64 @@ table {
   height: 40px;
   text-align: center;
   font-size: 1.5em;
-  /* display: block; */
-  /* color:white; */
-  background-color: rgb(252, 226, 193);
+  color:white;
+  background-color:gray;
+  box-shadow: none;
+  cursor: pointer;
+  
+}
+.cell::selection {
+  background: transparent;
+}
+
+.revealed {
+  cursor: none;
+  background-color:rgb(169,169,169);
+ 
+}
+
+.safeClick{
+  background-color:royalblue;
+}
+
+.levels {
+  display: block;
+  position: fixed;
+  /* left: 300px; */
+  top: 140px;
+  background-color:lightskyblue;
+  border: black solid;
+  width: 100px;
+  height: 110px;
+  color:black;
   
 }
 
-/* .level {
+
+.level{
   background-color: lightseagreen;
-  display:block;
-  position: absolute;
-  top:10px;
-  right: 10px;
-  padding: 5px;
-  width: 300px;
-} */
+  /* display: block; */
+    width: 100px;
+    border: black solid;
+    
+}
 
+.lives{
+  color: blue;
+}
 
+.hints {
+ color: blue;
+  
+}
+.safeClicks{
+  color: blue;
+}
 
 .hidden{
   visibility: hidden;
 }
 
-.visible {
-  visibility: visible;
-}
 
 .timer {
   background-color: lightseagreen;
@@ -46,4 +82,11 @@ table {
   right: 10px;
   padding: 5px;
   width: 150px;
+  position: absolute;
+}
+
+.title{
+  color:rgb(32, 76, 178);
+  text-align: center;
+
 }

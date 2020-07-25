@@ -9,27 +9,47 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 
-<body onload="initGame()">
+<body onload="initGame()" >
+    
+<h1 class="title">MinesSweeper </h1>
 
-    <h1 class="title"> </h1>
 
-    <div class="level">
+    <div class="levels">
         <h3>choose your level:</h3>
-        <button onclick="setLevel(4,2)">Beginnerr (16 Cells,2 Mines))</button>
-        <button onclick="setLevel(8,12)">Medium (64 Cells,12 Mines) </button>
-        <button onclick="setLevel(12,30)">Expert (144 Cells,30 Mines)</button>
+        <button class="level" onclick="setLevel(4,2)">Beginnerr (16 Cells,2 Mines))</button>
+        <button class="level" onclick="setLevel(8,12)">Medium (64 Cells,12 Mines) </button>
+        <button class="level" onclick="setLevel(12,30)">Expert (144 Cells,30 Mines)</button>
     </div>
 
     <div>
-        <button class="restart-btn" onclick="initGame()">Restart</button>
-        <button class="" onclick="setHint()">💡</button>
-        <button class="" onclick="setHint()">💡</button>
-        <button class="" onclick="setHint()">💡</button>
-        <div class="board-container"></div>
+        <button class="smiley" onclick="initGame()">&#128515</button>
+    </div>
 
-        <div class="timer">
-            <h3>game time:<span></span></h3>
-        </div>
+    
+    <span class="hints">hints</span>
+    <button class="hint hint1" onclick="setHint(this)">💡</button>
+    <button class="hint hint2" onclick="setHint(this)">💡</button>
+    <button class="hint hint3" onclick="setHint(this)">💡</button>
+    
+
+    <span class="lives">lives</span>
+    <button class="life life1" onclick="setLives(this)">💪</button>
+    <button class="life life2" onclick="setLives(this)">💪</button>
+    <button class="life life3" onclick="setLives(this)">💪</button>
+    
+    <span class="safeClicks">safe clicks</span>
+    <button class="safe click1" onclick="safeClick(this)">🦺</button>
+    <button class="safe click2" onclick="safeClick(this)">🦺</button>
+    <button class="safe click2" onclick="safeClick(this)">🦺</button>
+
+
+    <button onclick="undo()">Undo</button>
+
+    <div class="board-container"></div>
+
+    <div class="timer">
+        <h3>game time:<span></span></h3>
+    </div>
 
     </div>
 

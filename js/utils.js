@@ -3,14 +3,14 @@
 function renderBoard(mat, selector) {
   var strHTML = '<table border="0"><tbody>';
   for (var i = 0; i < mat.length; i++) {
-      strHTML += '<tr>';
-      for (var j = 0; j < mat[0].length; j++) {
-          var cell = mat[i][j];
-          var cellStr = buildCellStr(cell);
-          var className = 'cell cell-' + i + '-' + j;
-          strHTML += '<td class="' + className + '" data-i="' + i + '" data-j="' + j + '" onclick="cellClicked(this)"  oncontextmenu="cellMarked(this)"> <span class="hidden">' + cellStr + '</span> </td>'
-      }
-      strHTML += '</tr>'
+    strHTML += '<tr>';
+    for (var j = 0; j < mat[0].length; j++) {
+      var cell = mat[i][j];
+      var cellStr = buildCellStr(cell);
+      var className = 'cell cell-' + i + '-' + j;
+      strHTML += '<td class="' + className + '" data-i="' + i + '" data-j="' + j + '" onclick="cellClicked(this)"  oncontextmenu="cellMarked(this)"> <span class="hidden">' + cellStr + '</span> </td>'
+    }
+    strHTML += '</tr>'
   }
   strHTML += '</tbody></table>';
   var elContainer = document.querySelector(selector);
@@ -21,14 +21,15 @@ function renderBoard(mat, selector) {
 // this function build string content for innerHTML of each cell
 function buildCellStr(cell) {
   var cellStr = '';
-  if (cell.isMine) {
-      cellStr = MINE;
+  if (cell.isMarked) cellStr = FLAG;
+  else if (cell.isMine) {
+    cellStr = MINE;
   }
   else if (cell.minesAroundCount !== 0) {
-      cellStr = '' + cell.minesAroundCount;
+    cellStr = '' + cell.minesAroundCount;
   }
   else {
-      cellStr = EMPTY;
+    cellStr = EMPTY;
   }
   return cellStr;
 }
@@ -37,9 +38,9 @@ function buildCellStr(cell) {
 
 function getCellHTML(cellStr) {
   if (cellStr === FLAG) {
-      return `<span>${cellStr}</span>`;
+    return `<span>${cellStr}</span>`;
   } else {
-      return `<span class="hidden">${cellStr}</span>`;
+    return `<span class="hidden">${cellStr}</span>`;
   }
 }
 
@@ -60,7 +61,7 @@ function getRandomIntInclusive(min, max) {
 // need to fix this
 function disableContextMenu(element) {
   element.oncontextmenu = function () {
-      return false;
+    return false;
   }
 }
 
@@ -68,21 +69,21 @@ function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
   for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+    color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
 }
 
 //this function shows/unshows the timer
-function handleTimer(mode=gGame.isOn) {
+function handleTimer(mode = gGame.isOn) {
   var elTimer = document.querySelector('.timer');
   if (mode) {
-      elTimer.style.display = 'block';
-      gTimerInterval = setInterval(setTime, 1000);
+    elTimer.style.display = 'block';
+    gTimerInterval = setInterval(setTime, 1000);
   }
   else {
-      elTimer.style.display = 'none';
-      clearInterval(gTimerInterval);
+    elTimer.style.display = 'none';
+    clearInterval(gTimerInterval);
   }
 }
 
@@ -101,22 +102,22 @@ function pad(val) {
 
 
 
-function findEmptyCoord(){
-	var empties = [];
-	for (var i = 1; i < gBoard.length - 1; i++) {
-		for (var j = 1; j < gBoard[i].length - 1; j++) {
+function findEmptyCoord() {
+  var empties = [];
+  for (var i = 1; i < gBoard.length - 1; i++) {
+    for (var j = 1; j < gBoard[i].length - 1; j++) {
       var cell = gBoard[i][j];
       console.log(cell);
-			if (cell==='') {
+      if (cell === '') {
         console.log(cell);
-				var coord = { i: i, j: j };
-				empties.push(coord);
-			}
-		}
-	}
-  var chosenCoord = empties[getRandomIntInclusive(0, empties.length-1)];
+        var coord = { i: i, j: j };
+        empties.push(coord);
+      }
+    }
+  }
+  var chosenCoord = empties[getRandomIntInclusive(0, empties.length - 1)];
   console.log(chosenCoord.i);
-	return chosenCoord;
+  return chosenCoord;
 
 }
 
